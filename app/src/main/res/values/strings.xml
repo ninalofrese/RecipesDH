@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Digital House Foods</string>
+    <string name="action_profile">Profile</string>
+    <string name="empty_name">Insert a name</string>
+    <string name="valid_email">Insert a valid email address</string>
+    <string name="valid_password">Insert a password with at least 6 digits</string>
+    <string name="matches_password">Passwords must match!</string>
+    <string name="title_activity_restaurante">RestauranteActivity</string>
+    <string name="large_text">
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel rutrum nisi. Sed viverra at tellus ut fringilla. Maecenas consectetur, arcu a feugiat tristique, sapien mauris ultrices dui, ac placerat leo urna sed enim. Donec vitae ultricies diam. Nullam luctus tristique interdum. In eu ex vel justo ultricies elementum. Proin gravida dapibus imperdiet. Phasellus sed posuere eros, sit amet finibus risus. Vivamus felis dolor, condimentum et nibh ut, varius dapibus sem. Duis venenatis interdum sem, nec aliquam mi sodales vitae. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse sed mollis ipsum. Morbi non sodales turpis.\n\n"
+
+        "Nunc dignissim non sapien a dignissim. Sed turpis purus, tempus at augue vitae, facilisis scelerisque massa. Nulla facilisi. Nunc et ligula sed nisi placerat consectetur. Curabitur tincidunt mauris nec faucibus venenatis. Quisque risus nulla, lacinia a sollicitudin efficitur, maximus et ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus fermentum ut orci quis luctus. Aliquam massa ante, placerat non neque a, sagittis ullamcorper elit. Vivamus fermentum, nisl rhoncus commodo placerat, urna tellus fermentum sapien, vitae facilisis est sem vitae ipsum. Curabitur et tellus mauris. Etiam id turpis vel dui consequat vestibulum non sit amet nisl. Maecenas euismod, eros at facilisis aliquet, justo nunc ullamcorper mi, sit amet aliquet urna lacus fringilla augue.\n\n"
+
+        "Nunc dignissim non sapien a dignissim. Sed turpis purus, tempus at augue vitae, facilisis scelerisque massa. Nulla facilisi. Nunc et ligula sed nisi placerat consectetur. Curabitur tincidunt mauris nec faucibus venenatis. Quisque risus nulla, lacinia a sollicitudin efficitur, maximus et ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus fermentum ut orci quis luctus. Aliquam massa ante, placerat non neque a, sagittis ullamcorper elit. Vivamus fermentum, nisl rhoncus commodo placerat, urna tellus fermentum sapien, vitae facilisis est sem vitae ipsum. Curabitur et tellus mauris. Etiam id turpis vel dui consequat vestibulum non sit amet nisl. Maecenas euismod, eros at facilisis aliquet, justo nunc ullamcorper mi, sit amet aliquet urna lacus fringilla augue.\n\n"
+
+        "Nunc rutrum eleifend lacus. Nulla tempus in magna ac condimentum. Aenean vitae ipsum eget orci condimentum consequat. Nullam ante metus, varius nec dictum quis, luctus in erat. Duis non ultrices est, a rhoncus enim. Pellentesque elementum, justo sollicitudin pharetra accumsan, mi mi faucibus sapien, non luctus justo tortor in sem. Pellentesque viverra dui libero, vitae imperdiet nisi sodales pulvinar. Ut pulvinar vitae dui ut egestas. In ultricies risus felis. Proin efficitur eros ut felis iaculis dictum cursus non libero. Cras iaculis risus nec nisl venenatis, non vestibulum est dapibus."
+    </string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_recipe">RecipeActivity</string>
+    <string name="title_activity_restaurant">RestaurantActivity</string>
+</resources>
