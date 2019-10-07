@@ -64,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements RestaurantOnClick
         if (id == R.id.action_profile) {
             bundleToProfile();
             return true;
+        } else if (id == R.id.action_cards) {
+            startActivity(new Intent(MainActivity.this, CreditCardActivity.class));
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.ProfileActivity"></activity>
+        <activity
+            android:name=".views.CreditCardActivity"
+            android:label="@string/title_activity_credit_card"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".views.ProfileActivity" />
         <activity
             android:name=".views.RestaurantActivity"
             android:label="@string/title_activity_restaurant"
