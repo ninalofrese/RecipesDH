@@ -7,11 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.recipes.R;
+import com.example.recipes.models.Usuario;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static com.example.recipes.views.RegisterActivity.NEW_USER;
 
 public class LoginActivity extends AppCompatActivity {
     private TextInputLayout inputEmail;
@@ -19,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     private MaterialButton buttonLogin;
     private MaterialButton buttonRegister;
 
-    private String email, password;
+    private String nome, email, password;
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
     private Matcher matcher;
@@ -30,6 +33,14 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         initViews();
+
+        if (getIntent() != null && getIntent().getExtras() != null) {
+            Usuario usuario = getIntent().getExtras().getParcelable(NEW_USER);
+
+            inputEmail.getEditText().setText(usuario.getEmail());
+            inputPassword.getEditText().setText(usuario.getSenha());
+            nome = usuario.getNome();
+        }
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +81,8 @@ public class LoginActivity extends AppCompatActivity {
             inputEmail.setErrorEnabled(false);
             inputPassword.setErrorEnabled(false);
 
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            Usuario usuario = new Usuario(nome, email, password);
+            bundleToActivity(usuario);
         }
     }
 
@@ -81,5 +93,13 @@ public class LoginActivity extends AppCompatActivity {
 
     public boolean validatePassword(String senha) {
         return senha.length() > 5;
+    }
+
+    public void bundleToActivity(Usuario usuario) {
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(NEW_USER, usuario);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

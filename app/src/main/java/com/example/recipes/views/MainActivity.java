@@ -7,6 +7,7 @@ import com.example.recipes.R;
 import com.example.recipes.adapters.RestaurantsAdapter;
 import com.example.recipes.interfaces.RestaurantOnClick;
 import com.example.recipes.models.Restaurante;
+import com.example.recipes.models.Usuario;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -22,6 +23,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.recipes.views.RegisterActivity.NEW_USER;
 
 public class MainActivity extends AppCompatActivity implements RestaurantOnClick {
     private RecyclerView recyclerRestaurant;
@@ -59,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements RestaurantOnClick
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_profile) {
-            startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+            bundleToProfile();
             return true;
         }
 
@@ -82,5 +85,16 @@ public class MainActivity extends AppCompatActivity implements RestaurantOnClick
         bundle.putParcelable(RESTAURANT, restaurante);
         intent.putExtras(bundle);
         startActivity(intent);
+    }
+
+    public void bundleToProfile() {
+        if (getIntent() != null && getIntent().getExtras() != null) {
+            Usuario usuario = getIntent().getExtras().getParcelable(NEW_USER);
+            Intent newIntent = new Intent(MainActivity.this, ProfileActivity.class);
+            Bundle newBundle = new Bundle();
+            newBundle.putParcelable(NEW_USER, usuario);
+            newIntent.putExtras(newBundle);
+            startActivity(newIntent);
+        }
     }
 }

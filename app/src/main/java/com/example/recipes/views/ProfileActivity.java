@@ -7,11 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.recipes.R;
+import com.example.recipes.models.Usuario;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static com.example.recipes.views.RegisterActivity.NEW_USER;
 
 public class ProfileActivity extends AppCompatActivity {
     private TextInputLayout inputName;
@@ -34,6 +37,13 @@ public class ProfileActivity extends AppCompatActivity {
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+        if (getIntent() != null && getIntent().getExtras() != null) {
+            Usuario usuario = getIntent().getExtras().getParcelable(NEW_USER);
+
+            inputName.getEditText().setText(usuario.getNome());
+            inputEmail.getEditText().setText(usuario.getEmail());
         }
 
         buttonSave.setOnClickListener(new View.OnClickListener() {

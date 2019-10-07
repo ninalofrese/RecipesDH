@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.example.recipes.R;
+import com.example.recipes.models.Usuario;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -25,6 +26,8 @@ public class RegisterActivity extends AppCompatActivity {
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
     private Matcher matcher;
+
+    public static final String NEW_USER = "usuario";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +92,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (isValid) {
             if (password.equals(confirmPassword)) {
-                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                Usuario usuario = new Usuario(name, email, password);
+                setToBundle(usuario);
             } else {
                 inputPassword.setError(getString(R.string.matches_password));
                 inputConfirmPassword.setError(getString(R.string.matches_password));
@@ -109,5 +113,11 @@ public class RegisterActivity extends AppCompatActivity {
         return senha.length() > 5;
     }
 
-
+    public void setToBundle(Usuario usuario) {
+        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(NEW_USER, usuario);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
 }
