@@ -5,18 +5,13 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.example.recipes.R;
-import com.example.recipes.interfaces.CardOnClick;
 import com.example.recipes.interfaces.DialogBack;
 import com.example.recipes.models.CreditCard;
 import com.google.android.material.textfield.TextInputLayout;
@@ -26,9 +21,8 @@ import java.util.Locale;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DialogFragment extends androidx.fragment.app.DialogFragment implements TextView.OnEditorActionListener {
+public class DialogFragment extends androidx.fragment.app.DialogFragment {
     public static final String CARTAO_NOVO = "cartao";
-    public static final String DIALOG_KEY = "dialog";
     private TextInputLayout cardName;
     private TextInputLayout cardNumber;
     private TextInputLayout cardCode;
@@ -98,7 +92,7 @@ public class DialogFragment extends androidx.fragment.app.DialogFragment impleme
 
                 }
             });
-        } else{
+        } else {
             buttonOK.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -118,17 +112,6 @@ public class DialogFragment extends androidx.fragment.app.DialogFragment impleme
             });
         }
 
-        // Exibe o teclado virtual ao exibir o Dialog
-//        getDialog().getWindow().setSoftInputMode(
-//                WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
-//
-//        getDialog().setTitle("Register Credit Card");
-//
-//        cardName.requestFocus();
-        // Listener para quando clicarmos
-        // em 'Done' no teclado
-        //cardCode.setOnEditorActionListener(this);
-
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -147,26 +130,4 @@ public class DialogFragment extends androidx.fragment.app.DialogFragment impleme
         buttonCancel = view.findViewById(R.id.dialog_button_cancel);
         buttonOK = view.findViewById(R.id.dialog_button_ok);
     }
-
-    @Override
-    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-        // Se clicou em 'Done'
-        if (EditorInfo.IME_ACTION_DONE == i) {
-            // Notifique a Activity
-            CardOnClick activity =
-                    (CardOnClick) getActivity();
-            activity.onCardClick(cartaoCredito);
-            // Feche o dialog
-            dismiss();
-            return true;
-        }
-        return false;
-    }
-
-    public void openDialog(FragmentManager fm) {
-        if (fm.findFragmentByTag(DIALOG_KEY) == null) {
-            show(fm, DIALOG_KEY);
-        }
-    }
-
 }

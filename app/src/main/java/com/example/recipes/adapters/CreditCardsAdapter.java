@@ -69,7 +69,6 @@ public class CreditCardsAdapter extends RecyclerView.Adapter<CreditCardsAdapter.
 
     public static String maskCardNumber(String cardNumber, String mask) {
 
-        // format the number
         int index = 0;
         StringBuilder maskedNumber = new StringBuilder();
         for (int i = 0; i < mask.length(); i++) {
@@ -85,7 +84,6 @@ public class CreditCardsAdapter extends RecyclerView.Adapter<CreditCardsAdapter.
             }
         }
 
-        // return the masked number
         return maskedNumber.toString();
     }
 
@@ -97,11 +95,7 @@ public class CreditCardsAdapter extends RecyclerView.Adapter<CreditCardsAdapter.
         notifyItemChanged(position, velhoCartao);
     }
 
-    public void updateList(CreditCard cartao) {
-        insertItem(cartao);
-    }
-
-    private void insertItem(CreditCard cartao) {
+    public void insertItem(CreditCard cartao) {
         creditCardList.add(cartao);
         notifyItemInserted(getItemCount());
     }

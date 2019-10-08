@@ -74,7 +74,7 @@ public class CreditCardActivity extends AppCompatActivity implements CardOnClick
 
     @Override
     public void onNewItem(CreditCard cartao) {
-        adapter.updateList(cartao);
+        adapter.insertItem(cartao);
     }
 
 }
