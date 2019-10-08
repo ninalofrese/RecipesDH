@@ -72,15 +72,17 @@ public class DialogFragment extends androidx.fragment.app.DialogFragment {
             cardName.getEditText().setText(cartaoCredito.getName());
             cardNumber.getEditText().setText(String.format(Locale.US, "%d", cartaoCredito.getNumber()));
             cardCode.getEditText().setText(String.format(Locale.US, "%d", cartaoCredito.getSafeCode()));
+        }
 
-            buttonOK.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+        buttonOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-                    String nome = cardName.getEditText().getText().toString();
-                    String number = cardNumber.getEditText().getText().toString();
-                    String code = cardCode.getEditText().getText().toString();
+                String nome = cardName.getEditText().getText().toString();
+                String number = cardNumber.getEditText().getText().toString();
+                String code = cardCode.getEditText().getText().toString();
 
+                if (getArguments() != null) {
                     cartaoCredito.setName(nome);
                     cartaoCredito.setNumber(Long.parseLong(number));
                     cartaoCredito.setSafeCode(Integer.parseInt(code));
@@ -89,28 +91,16 @@ public class DialogFragment extends androidx.fragment.app.DialogFragment {
                         listenerOK.onClickBack(cartaoCredito);
                         dismiss();
                     }
-
-                }
-            });
-        } else {
-            buttonOK.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    String nome = cardName.getEditText().getText().toString();
-                    String number = cardNumber.getEditText().getText().toString();
-                    String code = cardCode.getEditText().getText().toString();
-
+                } else {
                     CreditCard novoCartao = new CreditCard(nome, Long.parseLong(number), Integer.parseInt(code));
 
                     if (listenerOK != null) {
                         listenerOK.onNewItem(novoCartao);
                         dismiss();
                     }
-
                 }
-            });
-        }
+            }
+        });
 
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
