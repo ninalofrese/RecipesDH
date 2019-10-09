@@ -9,17 +9,13 @@ import com.example.recipes.interfaces.RecipeOnClick;
 import com.example.recipes.models.Receita;
 import com.example.recipes.models.Restaurante;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.ViewCompat;
-import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.View;
 import android.widget.ImageView;
 
 import com.example.recipes.R;
