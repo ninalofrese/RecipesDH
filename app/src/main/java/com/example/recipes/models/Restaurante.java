@@ -3,17 +3,21 @@ package com.example.recipes.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.List;
+
 public class Restaurante implements Parcelable {
     private String nome;
     private String endereco;
     private String horario;
     private int imagem;
+    private List<Receita> listaReceita;
 
-    public Restaurante(String nome, String endereco, String horario, int imagem) {
+    public Restaurante(String nome, String endereco, String horario, int imagem, List<Receita> listaReceita) {
         this.nome = nome;
         this.endereco = endereco;
         this.horario = horario;
         this.imagem = imagem;
+        this.listaReceita = listaReceita;
     }
 
     public Restaurante() {
@@ -24,6 +28,7 @@ public class Restaurante implements Parcelable {
         endereco = in.readString();
         horario = in.readString();
         imagem = in.readInt();
+        listaReceita = in.createTypedArrayList(Receita.CREATOR);
     }
 
     public static final Creator<Restaurante> CREATOR = new Creator<Restaurante>() {
@@ -70,6 +75,14 @@ public class Restaurante implements Parcelable {
         this.imagem = imagem;
     }
 
+    public List<Receita> getListaReceita() {
+        return listaReceita;
+    }
+
+    public void setListaReceita(List<Receita> listaReceita) {
+        this.listaReceita = listaReceita;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -81,5 +94,6 @@ public class Restaurante implements Parcelable {
         parcel.writeString(endereco);
         parcel.writeString(horario);
         parcel.writeInt(imagem);
+        parcel.writeTypedList(listaReceita);
     }
 }

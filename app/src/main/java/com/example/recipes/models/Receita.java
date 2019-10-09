@@ -6,15 +6,7 @@ import android.os.Parcelable;
 public class Receita implements Parcelable {
     private String nomePrato;
     private int imagemPrato;
-    private Restaurante restaurante;
     private String detalhesPrato;
-
-    public Receita(String nomePrato, int imagemPrato, Restaurante restaurante, String detalhesPrato) {
-        this.nomePrato = nomePrato;
-        this.imagemPrato = imagemPrato;
-        this.restaurante = restaurante;
-        this.detalhesPrato = detalhesPrato;
-    }
 
     public Receita() {
     }
@@ -57,14 +49,6 @@ public class Receita implements Parcelable {
 
     public void setImagemPrato(int imagemPrato) {
         this.imagemPrato = imagemPrato;
-    }
-
-    public Restaurante getRestaurante() {
-        return restaurante;
-    }
-
-    public void setRestaurante(Restaurante restaurante) {
-        this.restaurante = restaurante;
     }
 
     public String getDetalhesPrato() {

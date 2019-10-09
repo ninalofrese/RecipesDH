@@ -7,4 +7,10 @@
         android:orderInCategory="100"
         android:title="Perfil"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_cards"
+        android:orderInCategory="100"
+        android:title="Cartões"
+        app:showAsAction="never" />
+
 </menu>
