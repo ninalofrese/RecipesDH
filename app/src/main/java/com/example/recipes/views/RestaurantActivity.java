@@ -59,10 +59,11 @@ public class RestaurantActivity extends AppCompatActivity implements RecipeOnCli
 
             toolbarLayout.setTitle(restaurante.getNome());
             imageRestaurant.setImageDrawable(drawable);
+            recipesList = restaurante.getListaReceita();
         }
 
         recyclerRecipes = findViewById(R.id.recipes_recyclerView);
-        recipesAdapter = new RecipesAdapter(listarReceitas(), this);
+        recipesAdapter = new RecipesAdapter(recipesList, this);
         recyclerRecipes.setAdapter(recipesAdapter);
         ViewCompat.setNestedScrollingEnabled(recyclerRecipes, false);
         recyclerRecipes.setLayoutManager(new GridLayoutManager(this, 2));
@@ -74,30 +75,6 @@ public class RestaurantActivity extends AppCompatActivity implements RecipeOnCli
         return true;
     }
 
-    private List<Receita> listarReceitas() {
-
-        if (restaurante != null) {
-            recipesList.add(new Receita("Salada com molho de gengibre", R.drawable.receita1, restaurante, getString(R.string.large_text)));
-            recipesList.add(new Receita("Salada com molho de gengibre", R.drawable.receita1, restaurante, getString(R.string.large_text)));
-            recipesList.add(new Receita("Salada com molho de gengibre", R.drawable.receita1, restaurante, getString(R.string.large_text)));
-            recipesList.add(new Receita("Salada com molho de gengibre", R.drawable.receita1, restaurante, getString(R.string.large_text)));
-            recipesList.add(new Receita("Salada com molho de gengibre", R.drawable.receita1, restaurante, getString(R.string.large_text)));
-            recipesList.add(new Receita("Salada com molho de gengibre", R.drawable.receita1, restaurante, getString(R.string.large_text)));
-            recipesList.add(new Receita("Salada com molho de gengibre", R.drawable.receita1, restaurante, getString(R.string.large_text)));
-            recipesList.add(new Receita("Salada com molho de gengibre", R.drawable.receita1, restaurante, getString(R.string.large_text)));
-        } else {
-            recipesList.add(new Receita("Salada com molho de mostarda", R.drawable.receita1, getString(R.string.large_text)));
-            recipesList.add(new Receita("Salada com molho de mostarda", R.drawable.receita1, getString(R.string.large_text)));
-            recipesList.add(new Receita("Salada com molho de mostarda", R.drawable.receita1, getString(R.string.large_text)));
-            recipesList.add(new Receita("Salada com molho de mostarda", R.drawable.receita1, getString(R.string.large_text)));
-            recipesList.add(new Receita("Salada com molho de mostarda", R.drawable.receita1, getString(R.string.large_text)));
-            recipesList.add(new Receita("Salada com molho de mostarda", R.drawable.receita1, getString(R.string.large_text)));
-            recipesList.add(new Receita("Salada com molho de mostarda", R.drawable.receita1, getString(R.string.large_text)));
-            recipesList.add(new Receita("Salada com molho de mostarda", R.drawable.receita1, getString(R.string.large_text)));
-        }
-
-        return recipesList;
-    }
 
     @Override
     public void onClick(Receita recipe) {
